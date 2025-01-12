@@ -1,0 +1,224 @@
+@font-face {
+  font-family: "Young Serif";
+  src: url("./assets/fonts/young-serif/YoungSerif-Regular.ttf")
+    format("truetype");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Outfit";
+  src: url("./assets/fonts/outfit/Outfit-VariableFont_wght.ttf")
+    format("truetype");
+  font-style: normal;
+}
+
+:root {
+  --white: hsl(0, 0%, 100%);
+
+  --stone100: hsl(30, 54%, 90%);
+  --stone150: hsl(30, 18%, 87%);
+  --stone600: hsl(30, 10%, 34%);
+  --stone900: hsl(24, 5%, 18%);
+
+  --brown800: hsl(14, 45%, 36%);
+
+  --rose800: hsl(332, 51%, 32%);
+  --rose50: hsl(330, 100%, 98%);
+
+  --fontFamilyYoungSerif: "Young Serif", serif;
+  --fontFamilyOutfit: "Outfit", sans-serif;
+
+  --fontSizeBody: 1rem;
+  --fontSizeHeaderSmall: 20px;
+  --fontSizeHeaderMid: 28px;
+  --fontSizeHeaderLarge: 40px;
+
+  --lineHeightBody: 1.5;
+  --lineHeightHeader: 1;
+  --letterSpacing: 0px;
+
+  --fontWeightRegular: 400;
+  --fontWeightSemiBold: 600;
+  --fontWeightBold: 700;
+
+  --spacing100: 8px;
+  --spacing150: 12px;
+  --spacing200: 16px;
+  --spacing300: 24px;
+  --spacing400: 32px;
+  --spacing500: 40px;
+  --spacing600: 48px;
+  --spacing1600: 128px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: var(--stone100);
+  color: var(--stone600);
+  font-family: var(--fontFamilyOutfit);
+  font-optical-sizing: auto;
+  font-size: var(--fontSizeBody);
+  font-weight: var(--fontWeightRegular);
+  line-height: var(--lineHeightBody);
+  letter-spacing: var(--letterSpacing);
+}
+
+img {
+  display: block;
+  width: 100%;
+  border-radius: var(--spacing150);
+}
+
+main {
+  min-height: 100%;
+  margin-inline: auto;
+  width: fit-content;
+  padding-block: var(--spacing1600);
+}
+
+.card {
+  margin: var(--spacing200);
+  padding: var(--spacing500);
+  max-width: 616px;
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing400);
+  border-radius: var(--spacing300);
+}
+
+@media only screen and (max-width: 500px) {
+  main {
+    padding: 0;
+  }
+
+  .card {
+    border-radius: 0;
+    padding: var(--spacing400);
+    padding-block-start: 0;
+    margin: 0;
+  }
+
+  section.preview-image {
+    margin-inline: -32px;
+    img {
+      border-radius: 0;
+    }
+  }
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing300);
+}
+
+h1,
+h2 {
+  font-family: var(--fontFamilyYoungSerif);
+  font-weight: var(--fontWeightRegular);
+  line-height: var(--lineHeightHeader);
+}
+
+h1 {
+  font-size: var(--fontSizeHeaderLarge);
+  color: var(--stone900);
+}
+
+h2 {
+  font-size: var(--fontSizeHeaderMid);
+  color: var(--brown800);
+}
+
+strong {
+  font-weight: var(--fontWeightBold);
+}
+
+.prep-time {
+  background-color: var(--rose50);
+  width: 100%;
+  padding: var(--spacing300);
+  border-radius: var(--spacing150);
+}
+.prep-time h2 {
+  font-size: var(--fontSizeHeaderSmall);
+  font-family: var(--fontFamilyOutfit);
+  font-weight: var(--fontWeightSemiBold);
+  color: var(--rose800);
+  margin-block-end: var(--spacing200);
+}
+
+ul li,
+ol li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+ol {
+  counter-reset: instructions;
+}
+ol li {
+  align-items: flex-start;
+}
+
+li::before {
+  display: block;
+  width: var(--fontSizeBody);
+  font-weight: var(--fontWeightBold);
+  margin-inline: var(--spacing100) var(--spacing200);
+  color: var(--brown800);
+}
+
+.prep-time ul li::before {
+  color: var(--rose800);
+}
+
+ul li::before {
+  content: "•";
+}
+
+ol li::before {
+  counter-increment: instructions;
+  content: counter(instructions) ".";
+}
+
+li {
+  &:not(:last-child) {
+    margin-block-end: var(--spacing100);
+  }
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--stone150);
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+tr:not(:last-child) {
+  border-bottom: 1px solid var(--stone150);
+}
+
+td {
+  padding-block: var(--spacing150);
+  padding-inline: 32px;
+}
+
+td.value {
+  font-weight: var(--fontWeightBold);
+  color: var(--brown800);
+}
