@@ -84,12 +84,13 @@ main {
   margin-inline: auto;
   width: fit-content;
   padding-block: var(--spacing1600);
+  padding-inline: var(--spacing600);
 }
 
 .card {
   margin: var(--spacing200);
   padding: var(--spacing500);
-  max-width: 616px;
+  max-width: 736px;
   background-color: var(--white);
   display: flex;
   flex-direction: column;
